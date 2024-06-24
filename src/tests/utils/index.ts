@@ -24,13 +24,12 @@ export const populateDatabase = async (model: any, data: any[]) => {
  * Connect to the in-memory database.
  */
 export const connect = async () => {
+  const mongod = await MongoMemoryServer.create();
   const uri = await mongod.getUri();
 
   const mongooseOpts = {
     useNewUrlParser: true,
-    useCreateIndex: true,
     useUnifiedTopology: true,
-    useFindAndModify: false,
     socketTimeoutMS: 10000,
     autoIndex: false,
   };

@@ -3,7 +3,6 @@ import { ApolloServer, gql } from "apollo-server-express";
 import { buildSchema } from "../../utils";
 import mongoose from "mongoose";
 
-import { resolvers } from "../../modules";
 import { TodoMongooseModel } from "../../modules/todo/model";
 
 import {
@@ -31,9 +30,8 @@ afterEach(async () => {
   await clearDatabase();
 });
 
-afterAll(async (done) => {
+afterAll(async () => {
   await closeDatabase();
-  done();
 });
 
 /**
