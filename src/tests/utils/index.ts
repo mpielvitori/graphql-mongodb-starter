@@ -24,7 +24,7 @@ export const populateDatabase = async (model: any, data: any[]) => {
  * Connect to the in-memory database.
  */
 export const connect = async () => {
-  const uri = await mongod.getConnectionString(true);
+  const uri = await mongod.getUri();
 
   const mongooseOpts = {
     useNewUrlParser: true,

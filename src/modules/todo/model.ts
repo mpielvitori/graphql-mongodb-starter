@@ -1,3 +1,4 @@
+import { Service } from "typedi";
 import { getModelForClass } from "@typegoose/typegoose";
 import { ObjectId } from "mongodb";
 
@@ -7,6 +8,7 @@ import { NewTodoInput } from "./input";
 // This generates the mongoose model for us
 export const TodoMongooseModel = getModelForClass(Todo);
 
+@Service() // Dependencies injection
 export default class TodoModel {
   async getById(_id: ObjectId): Promise<Todo | null> {
     // Use mongoose as usual
