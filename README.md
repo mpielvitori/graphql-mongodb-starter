@@ -1,6 +1,8 @@
-# ts-graphql-starter
+# graphql-mongodb-starter
 
 This repo is aiming to be used as a starter kit for your next GraphQL api project. The structure as been heavily inspired by the SOLID principle, you can read more about it here: https://dev.to/santypk4/bulletproof-node-js-project-architecture-4epf
+
+Forked from [Rieranthony](https://github.com/Rieranthony/ts-graphql-starter)
 
 > Recommendations and pull requests are always welcome to improve this starter kit!
 
@@ -81,3 +83,38 @@ This repo is aiming to be used as a starter kit for your next GraphQL api projec
 #### Access to the GraphQL Playground (Dev only)
 
 - `http://localhost:5000/graphql`
+
+
+#### Usage
+
+- Create TODO record
+```
+mutation createTodo($createTodoData: NewTodoInput!) {
+	createTodo(createTodoData: $createTodoData) {
+		content
+	}
+}
+```
+    - Variables
+```
+{
+	"createTodoData": {
+		"content": "Test todo."
+	}
+}
+```
+
+- Get TODO record
+```
+query getTodo($id: ObjectId!) {
+	getTodo(id: $id) {
+		content
+	}
+}
+```
+    - Variables
+```
+{
+	"id": "<ID>"
+}
+```
